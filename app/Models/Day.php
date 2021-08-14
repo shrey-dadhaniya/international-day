@@ -53,6 +53,16 @@ class Day extends Model implements HasMedia
         return $this->media()->where('collection_name',Day::MEDIA_COLLECTION_POSTER);
     }
 
+    public function getPostersUrlWithUuid()
+    {
+        return $this->media()->where('collection_name',Day::MEDIA_COLLECTION_POSTER)->get()->map(function ($d){
+            return (object)[
+                'uuid'=>$d->uuid,
+                'url'=>$d->getUrl()
+            ];
+        });
+    }
+
     public function deletePoster($id)
     {
         $this->getMedia(Day::MEDIA_COLLECTION_POSTER)->find($id)->delete();
