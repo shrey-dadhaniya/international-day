@@ -16,6 +16,7 @@
 							<thead>
 							<tr>
 								<th>Category name</th>
+								<th>Banner</th>
 								<th>Actions</th>
 							</tr>
 							</thead>
@@ -23,6 +24,7 @@
 							@forelse($categories as $category)
 							<tr>
 								<td>{{$category->category_name}}</td>
+								<td><img src="{{$category->banner_url}}" class="img-fluid" style="width: 50px;" /></td>
 								<td>
 									<form action="{{route('category.destroy',$category->id)}}" method="post">
 										@csrf
@@ -40,7 +42,7 @@
 							</tr>
 							@empty
 								<tr>
-									<td colspan="2" class="text-center">
+									<td colspan="20" class="text-center">
 										No Data Found
 									</td>
 								</tr>
