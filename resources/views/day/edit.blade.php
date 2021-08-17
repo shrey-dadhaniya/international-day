@@ -89,7 +89,7 @@
 								<div class="col-sm-12">
 									<div class="form-group">
 										<label for="name">Banner</label>
-										<input type="file" name="banner-file" class="form-control">
+										<input type="file" name="banner-file" class="form-control" accept="image/*">
 										@error('banner-file')
 										<span class="help-block text-danger">{{$message}}</span>
 										@enderror

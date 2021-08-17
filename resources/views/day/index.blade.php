@@ -16,6 +16,7 @@
 							<thead>
 							<tr>
 								<th>Day name</th>
+								<th>Banner</th>
 								<th>Actions</th>
 							</tr>
 							</thead>
@@ -23,6 +24,7 @@
 							@forelse($days as $day)
 								<tr>
 									<td>{{$day->day_name}}</td>
+									<td><img src="{{$day->banner_url}}" class="img-fluid" style="width: 50px;"></td>
 									<td>
 										<form action="{{route('day.destroy',$day->id)}}" method="post">
 											@csrf

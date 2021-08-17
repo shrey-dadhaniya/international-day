@@ -20,7 +20,10 @@ class CategoryController extends Controller
 
     public function store(CategoryStoreOrUpdateRequest $request)
     {
-        Category::create($request->validated());
+        $category=Category::create($request->validated());
+        if ($request->hasFile('banner-file')) {
+            $category->addBanner($request->file('banner-file'));
+        }
         return redirect()->route('category.index');
     }
 
@@ -32,6 +35,9 @@ class CategoryController extends Controller
     public function update(CategoryStoreOrUpdateRequest $request, Category $category)
     {
         $category->update($request->validated());
+        if ($request->hasFile('banner-file')) {
+            $category->addBanner($request->file('banner-file'));
+        }
         return redirect()->route('category.index');
     }
     public function destroy(Category $category)

@@ -20,7 +20,7 @@ class DayShowResource extends JsonResource
             "day_name"=> $this->day_name,
             "day_description"=> $this->day_description,
             "day_date"=> $this->day_date,
-            "banner_image"=>$this->getBannerUrl(),
+            "banner_image"=>$this->banner_url,
             "posters"=>$this->getPostersUrlWithUuid(),
             "tags"=>TagResource::collection($this->tags)
         ];

@@ -2,7 +2,7 @@
 	<div class="fade-in">
 		<div class="row">
 			<div class="col-sm-6 mx-auto">
-				<form action="{{route('category.update',$category->id)}}" method="post">
+				<form action="{{route('category.update',$category->id)}}" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('PUT')
 					<div class="card">
@@ -16,6 +16,15 @@
 										       placeholder="Enter Category name"
 										value="{{old('category_name')??$category->category_name}}">
 										@error('category_name')
+										<span class="help-block text-danger">{{$message}}</span>
+										@enderror
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="name">Banner</label>
+										<input class="form-control" id="banner" name="banner-file" type="file" accept="image/*">
+										@error('banner-file')
 										<span class="help-block text-danger">{{$message}}</span>
 										@enderror
 									</div>
