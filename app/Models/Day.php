@@ -40,12 +40,9 @@ class Day extends Model implements HasMedia
         return $this->media()->where('collection_name',Day::MEDIA_COLLECTION_BANNER);
     }
 
-    public function removeOldBanner()
+    public function registerMediaCollections(): void
     {
-        $media = $this->getMedia(self::MEDIA_COLLECTION_BANNER)->first();
-        if ($media) {
-            $media->delete();
-        }
+        $this->addMediaCollection(self::MEDIA_COLLECTION_BANNER)->singleFile();
     }
 
     public function posters()

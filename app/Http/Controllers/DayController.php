@@ -49,7 +49,6 @@ class DayController extends Controller
         $day->update($request->validated());
         $day->addTags($request->get('tags'));
         if ($request->hasFile('banner-file')) {
-            $day->removeOldBanner();
             $day->addMedia($request->file('banner-file'))->toMediaCollection(Day::MEDIA_COLLECTION_BANNER);
             $day->save();
         }
