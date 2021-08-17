@@ -26,11 +26,10 @@ class Day extends Model implements HasMedia
         $this->save();
     }
 
-    public function getBannerUrl()
+    public function getBannerUrlAttribute()
     {
-        $media = $this->getMedia(self::MEDIA_COLLECTION_BANNER)->first();
-        if ($media) {
-            return $media->getUrl();
+        if ($this->hasMedia(self::MEDIA_COLLECTION_BANNER)) {
+            return $this->getFirstMedia(self::MEDIA_COLLECTION_BANNER)->getUrl();
         }
         return null;
     }
