@@ -35,12 +35,12 @@
 										<div class="card-body">
 											<div class="row">
 												@forelse($day->posters as $k=>$media)
-													<form class="col-md-2 C_P" method="post"
-													      action="{{route('poster.destroy',$day->id)}}"
-													onclick="$(this).submit()">
+													<form class="col-md-2" method="post"
+													      action="{{route('poster.destroy',$day->id)}}">
 														@csrf
 														@method('DELETE')
 														<input type="hidden" name="media" value="{{$media->id}}">
+														<button class="btn btn-block btn-danger" type="submit">Delete</button>
 														<img src="{{$media->getUrl()}}" alt="" class="img-fluid">
 													</form>
 												@empty
