@@ -11,11 +11,5 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiBaseController extends Controller
 {
-    public function json($data,$httpStatus=Response::HTTP_OK,$status=true)
-    {
-        return response()->json([
-            'success' => $status,
-            'data' =>$data,
-        ], $httpStatus);
-    }
+
 }

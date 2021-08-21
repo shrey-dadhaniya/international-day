@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\ApiBaseController;
 use App\Http\Controllers\Controller;
@@ -15,10 +15,10 @@ class ApiDayController extends ApiBaseController
 {
     function index(Request $request)
     {
-        return $this->json(DayResource::collection(Day::filter()->get()->all()));
+        return DayResource::collection(Day::filter()->paginate(config('global.pagination_records')));
     }
 
     function show(Day $day){
-        return $this->json(new DayShowResource($day));
+        return new DayShowResource($day);
     }
 }

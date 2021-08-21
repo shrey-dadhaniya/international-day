@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\ApiBaseController;
 use App\Http\Resources\CategoryResource;
@@ -10,10 +10,10 @@ class ApiCategoryController extends ApiBaseController
 {
     public function index()
     {
-        return $this->json(CategoryResource::collection(Category::filter()->get()->all()));
+        return CategoryResource::collection(Category::filter()->paginate(config('global.pagination_records')));
     }
     public function show(Category $category)
     {
-        return $this->json(new CategoryResource($category));
+        return new CategoryResource($category);
     }
 }
