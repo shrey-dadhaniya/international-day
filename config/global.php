@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'pagination_records' => 1,
+    'pagination_records' => 10,
 ];
