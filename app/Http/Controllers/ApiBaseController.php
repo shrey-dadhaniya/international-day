@@ -9,7 +9,13 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response;
 
-class Controller extends BaseController
+class ApiBaseController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function json($data,$httpStatus=Response::HTTP_OK,$status=true)
+    {
+        return response()->json([
+            'success' => $status,
+            'data' =>$data,
+        ], $httpStatus);
+    }
 }

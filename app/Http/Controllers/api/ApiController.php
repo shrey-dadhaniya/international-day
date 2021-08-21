@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\ApiBaseController;
 use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
@@ -11,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Validator;
 use function PHPUnit\Framework\returnArgument;
 
-class ApiController extends Controller
+class ApiController extends ApiBaseController
 {
     public function register(Request $request)
     {

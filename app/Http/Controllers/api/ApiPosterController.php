@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiBaseController;
 
-class ApiPosterController extends Controller
+class ApiPosterController extends ApiBaseController
 {
     public function index()
     {

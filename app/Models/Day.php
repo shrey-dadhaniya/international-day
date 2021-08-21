@@ -3,17 +3,37 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Mehradsadeghi\FilterQueryString\FilterQueryString;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Day extends Model implements HasMedia
 {
     use InteractsWithMedia;
+    use FilterQueryString;
 
     public const MEDIA_COLLECTION_BANNER = 'banner';
     public const MEDIA_COLLECTION_POSTER = 'poster';
     protected $table = 'day';
     protected $fillable = ['id', 'category_id', 'country_id', 'day_name', 'day_description', 'day_date'];
+    protected $filters = [
+        'sort',
+        'in',
+        'like',
+        'greater',
+        'greater_or_equal',
+        'less',
+        'less_or_equal',
+        'between',
+        'not_between',
+        'id',
+        'category_id',
+        'country_id',
+        'day_name',
+        'day_description',
+        'day_date'
+    ];
+
 
     public static function dropdownArray()
     {
